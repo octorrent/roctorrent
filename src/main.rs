@@ -1,6 +1,6 @@
 use std::process::exit;
 use gtk::prelude::*; // Import all necessary traits from gtk3::prelude
-use gtk::{Application, ApplicationWindow, Builder, CssProvider, Image, Menu, MenuBar, MenuItem, Orientation, Window, WindowType, Box as GtkBox, gio, SeparatorMenuItem};
+use gtk::{Application, Builder, Window, WindowType, Box as GtkBox, gio};
 /*
 sudo apt update
 sudo apt install -y libglib2.0-dev
@@ -49,7 +49,6 @@ fn main() {
                 file_menu.append_item(&open_menu_item);
                 file_menu.append_item(&open_magnet_menu_item);
                 file_menu.append_item(&new_menu_item);
-                //file_menu.append_item(SeparatorMenuItem::new());
                 file_menu.append_item(&start_all_menu_item);
                 file_menu.append_item(&pause_all_menu_item);
                 //file_menu.append_item(SeparatorMenuItem::new());
@@ -62,30 +61,30 @@ fn main() {
                 let deselect_all_menu_item = gio::MenuItem::new(Some("Deselect All"), Some("app.deselect_all")); //CTRL+SHIFT+A
                 let preferences_menu_item = gio::MenuItem::new(Some("Preferences"), Some("app.preferences")); //CTRL+SHIFT+A
 
-                let file_menu = gio::Menu::new();
-                file_menu.append_item(&select_all_menu_item);
-                file_menu.append_item(&deselect_all_menu_item);
+                let edit_menu = gio::Menu::new();
+                edit_menu.append_item(&select_all_menu_item);
+                edit_menu.append_item(&deselect_all_menu_item);
                 //file_menu.append_item(SeparatorMenuItem::new());
-                file_menu.append_item(&preferences_menu_item);
-                file_menu
+                edit_menu.append_item(&preferences_menu_item);
+                edit_menu
             };
 
             let torrent_menu = {
-                let file_menu = gio::Menu::new();
-                file_menu
+                let torrent_menu = gio::Menu::new();
+                torrent_menu
             };
 
             let view_menu = {
-                let file_menu = gio::Menu::new();
-                file_menu
+                let view_menu = gio::Menu::new();
+                view_menu
             };
 
             let help_menu = {
                 let about_menu_item = gio::MenuItem::new(Some("About"), Some("app.about"));
 
-                let file_menu = gio::Menu::new();
-                file_menu.append_item(&about_menu_item);
-                file_menu
+                let help_menu = gio::Menu::new();
+                help_menu.append_item(&about_menu_item);
+                help_menu
             };
 
             let menubar = gio::Menu::new();
