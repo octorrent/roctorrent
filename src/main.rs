@@ -1,6 +1,6 @@
 use std::process::exit;
 use gtk::prelude::*; // Import all necessary traits from gtk3::prelude
-use gtk::{Application, Builder, Window, WindowType, Box as GtkBox, gio};
+use gtk::{Application, Builder, Window, WindowType, Box as GtkBox, gio, SeparatorMenuItem};
 /*
 sudo apt update
 sudo apt install -y libglib2.0-dev
@@ -49,6 +49,7 @@ fn main() {
                 file_menu.append_item(&open_menu_item);
                 file_menu.append_item(&open_magnet_menu_item);
                 file_menu.append_item(&new_menu_item);
+                //file_menu.append_item(SeparatorMenuItem::new());
                 file_menu.append_item(&start_all_menu_item);
                 file_menu.append_item(&pause_all_menu_item);
                 //file_menu.append_item(SeparatorMenuItem::new());
