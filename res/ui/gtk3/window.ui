@@ -13,6 +13,26 @@
                 <property name="can-focus">False</property>
                 <property name="orientation">vertical</property>
 
+                <child>
+                    <object class="GtkNotebook">
+                        <child>
+                            <object class="GtkLabel" id="all_label">
+                                <property name="label">All</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel" id="downloading_label">
+                                <property name="label">Downloading</property>
+                            </object>
+                        </child>
+                        <child>
+                            <object class="GtkLabel" id="complete_label">
+                                <property name="label">Complete</property>
+                            </object>
+                        </child>
+                    </object>
+                </child>
+
             </object>
         </child>
     </object>
