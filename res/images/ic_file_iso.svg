@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' height='36' viewBox='0 0 24 24' width='36'>
+	<path d='M5 0 h12.5 v4 q0 2 2 2 h4 v16 q0 2 -2 2 h-16 q-2 0 -2 -2 v-20 q0 -2 2 -2' fill='#EFEFEF' />
+	<path d='M17.5 0 v4 q0 2 2 2 h4' fill='#D8D8D8' />
+	<path d='M2.5 14.5 h14 q2 0 2 2 v4 q0 2 -2 2 h-14 q-2 0 -2 -2 v-4 q0 -2 2 -2' fill='#A3A3A3' />
+	<path d='M8 9 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0' fill='#D8D8D8' />
+	<path d='M10 9 a1 1 0 1 0 2 0 a1 1 0 1 0 -2 0' fill='#A3A3A3' />
+	<path d='M10.5 9 a0.5 0.5 0 1 0 1 0 a0.5 0.5 0 1 0 -1 0' fill='#EFEFEF' />
+</svg>

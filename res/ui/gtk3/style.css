@@ -2,11 +2,11 @@ window {
     background-color: #141414; /* Set to your preferred color */
 }
 
-trough {
+scrollbar trough {
     background-color: #242424;
 }
 
-slider {
+scrollbar slider {
     background-color: #994ce0;
 }
 
@@ -63,21 +63,27 @@ list {
     background-color: #242424;
 }
 
-row {
+list row {
     background-color: #242424;
     padding: 10px;
 }
 
-row #title {
+list row:active,
+        list row:active box {
+    background-color: #343434;
+}
+
+list row #title {
+    color: #e6e6e6;
     font-weight: bold;
 }
 
-row #status,
-        row #description {
+list row #status,
+        list row #description {
     color: #b3b3b3;
 }
 
-row progressbar trough {
+list row progressbar trough {
     min-height: 6px;
     background-color: #343434;
     border-radius: 0;
@@ -85,7 +91,7 @@ row progressbar trough {
     box-shadow: none;
 }
 
-row progressbar progress {
+list row progressbar progress {
     min-height: 6px;
     background-color: #994ce0;
     border-radius: 0;

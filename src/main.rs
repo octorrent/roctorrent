@@ -51,10 +51,7 @@ fn main() {
 
 
         let list_box = ListBox::new();
-
-        for i in 1..=50 {
-            list_box.add(&create_row(Torrent::new("ubuntu-21.10-desktop-amd64.iso")));
-        }
+        list_box.add(&create_row(Torrent::new("ubuntu-21.10-desktop-amd64.iso")));
 
 
         let all_tab_layout: ScrolledWindow = builder
@@ -87,7 +84,7 @@ fn create_row(torrent: Torrent) -> ListBoxRow {
     let hbox = gtk::Box::new(Orientation::Horizontal, 5);
 
     let icon = Image::new();
-    icon.set_from_file(Some("res/images/ic_ratio.svg"));
+    icon.set_from_file(Some("res/images/ic_file_iso.svg"));
     hbox.pack_start(&icon, false, false, 0);
 
     let vbox = gtk::Box::new(Orientation::Vertical, 5);
