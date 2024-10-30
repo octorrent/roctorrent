@@ -4,6 +4,7 @@ mod application;
 use std::process::exit;
 use gtk::prelude::*;
 use gtk::{Application, Builder, Box as GtkBox, gio, CssProvider, StyleContext, gdk, ApplicationWindow};
+use gtk::gdk_pixbuf::PixbufLoader;
 use crate::application::init_actions;
 
 fn main() {
@@ -26,6 +27,17 @@ fn main() {
             .expect("Failed to get the 'MainWindow' from window.ui");
 
         window.set_application(Some(app));
+
+
+        let svg_data = include_bytes!("../res/favicon.svg");
+        let loader = PixbufLoader::with_type("svg").expect("Failed to create SVG loader");
+        loader.write(svg_data).expect("Failed to load SVG data");
+        loader.close().expect("Failed to close SVG loader");
+        let icon_pixbuf = loader.pixbuf().expect("Failed to get Pixbuf from SVG");
+
+        window.set_icon(Some(&icon_pixbuf));
+
+
 
         //let window = Window::new(WindowType::Toplevel);
         window.set_title("OcTorrent");

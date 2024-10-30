@@ -1,4 +1,6 @@
-use gtk::ApplicationWindow;
+use gtk::{AboutDialog, ApplicationWindow};
+use gtk::gdk_pixbuf::PixbufLoader;
+use gtk::prelude::*;
 use gtk::gio::SimpleAction;
 use gtk::prelude::{ActionMapExt, GtkWindowExt};
 use crate::config::VERSION;
@@ -13,13 +15,46 @@ pub fn init_actions(window: &ApplicationWindow) {
 }
 
 pub fn show_about(window: &ApplicationWindow) {
-    let dialog = gtk::AboutDialog::builder()
+
+
+    let svg_data = include_bytes!("../res/favicon.svg");
+    let loader = PixbufLoader::with_type("svg").expect("Failed to create SVG loader");
+    loader.write(svg_data).expect("Failed to load SVG data");
+    loader.close().expect("Failed to close SVG loader");
+    let icon_pixbuf = loader.pixbuf().expect("Failed to get Pixbuf from SVG");
+
+    window.set_icon(Some(&icon_pixbuf));
+
+
+    let dialog = AboutDialog::builder()
         .transient_for(window)
         .modal(true)
         .program_name("OcTorrent")
         .version(VERSION)
         .authors(vec!["DrBrad"])
-        //.authors(vec![<&str as Into<T>>::into("DrBrad")])
+        .website("https://octorrent.com")
+        .comments("Secure and Anonymous Torrent")
+        .copyright("Copyright (c) 2024 OcTorrent")
+        .license("Copyright (c) 2024 OcTorrent\r\n\r\n\
+        \
+        Permission is hereby granted, free of charge, to any person obtaining a copy\r\n\
+        of this software and associated documentation files (the \"Software\"), to deal\r\n\
+        in the Software without restriction, including without limitation the rights\r\n\
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\n\
+        copies of the Software, and to permit persons to whom the Software is\r\n\
+        furnished to do so, subject to the following conditions:\r\n\r\n\
+        \
+        The above copyright notice and this permission notice shall be included in all\r\n\
+        copies or substantial portions of the Software.\r\n\r\n\
+        \
+        THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\n\
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\n\
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\n\
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\n\
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\n\
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\n\
+        SOFTWARE.")
+        .logo(&icon_pixbuf)
         .build();
 
     dialog.present();
