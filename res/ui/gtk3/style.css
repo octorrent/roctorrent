@@ -4,6 +4,7 @@ window {
 
 menubar {
     background-color: #141414;
+    padding-bottom: 5px;
 }
 
 notebook {
