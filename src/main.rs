@@ -1,10 +1,12 @@
 mod config;
 mod application;
+mod handlers;
 
 use std::process::exit;
 use gtk::prelude::*;
 use gtk::{Application, Builder, gio, CssProvider, StyleContext, gdk, ApplicationWindow, ListBox, ListBoxRow, Label, Orientation, ScrolledWindow};
 use crate::application::{init_actions, init_styles};
+use crate::handlers::torrent::Torrent;
 
 fn main() {
     let app = Application::new(Some("com.octorrent.rust"), Default::default());
@@ -50,19 +52,8 @@ fn main() {
 
         let list_box = ListBox::new();
 
-        // Create and add items
         for i in 1..=50 {
-            let row = ListBoxRow::new();
-            let hbox = gtk::Box::new(Orientation::Horizontal, 5);
-
-            let label = Label::new(Some(&format!("Item {}", i)));
-            hbox.pack_start(&label, false, false, 5);
-
-            let label = Label::new(Some(&format!("Item {}", i)));
-            hbox.pack_start(&label, false, false, 5);
-
-            row.add(&hbox);
-            list_box.add(&row);
+            list_box.add(&create_row(Torrent::new("ubuntu-21.10-desktop-amd64.iso")));
         }
 
 
@@ -89,4 +80,18 @@ fn main() {
     });
 
     app.run();
+}
+
+fn create_row(torrent: Torrent) -> ListBoxRow {
+    let row = ListBoxRow::new();
+    let hbox = gtk::Box::new(Orientation::Horizontal, 5);
+
+    let label = Label::new(Some(torrent.get_title().as_str()));
+    hbox.pack_start(&label, false, false, 5);
+
+    //let label = Label::new(Some(&format!("Item {}", i)));
+    //hbox.pack_start(&label, false, false, 5);
+
+    row.add(&hbox);
+    row
 }
