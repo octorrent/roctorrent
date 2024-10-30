@@ -103,16 +103,16 @@ fn create_row(torrent: Torrent) -> ListBoxRow {
     vbox.pack_start(&label, false, true, 0);
 
     let progress = ProgressBar::new();
-    progress.set_fraction(50.0);
-    progress.set_halign(gtk::Align::Start);
-    vbox.pack_start(&progress, false, true, 0);
+    progress.set_fraction(0.5);
+    progress.set_expand(true);
+    vbox.pack_start(&progress, true, true, 0);
 
     let label = Label::new(Some("Downloading from 45 of 50 connected peers"));
     label.set_widget_name("description");
     label.set_halign(gtk::Align::Start);
-    vbox.pack_start(&label, false, true, 0);
+    vbox.pack_start(&label, true, true, 0);
 
-    hbox.pack_start(&vbox, false, false, 5);
+    hbox.pack_start(&vbox, true, true, 5);
 
     row.add(&hbox);
     row
