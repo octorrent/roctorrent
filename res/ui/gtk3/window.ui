@@ -26,7 +26,7 @@
                                 <property name="vexpand">True</property>
                             </object>
                             <packing>
-                                <property name="tab-label">All</property>
+                                <property name="tab-label">ALL</property>
                             </packing>
                         </child>
 
@@ -38,7 +38,7 @@
                                 <property name="vexpand">True</property>
                             </object>
                             <packing>
-                                <property name="tab-label">Downloading</property>
+                                <property name="tab-label">DOWNLOADING</property>
                             </packing>
                         </child>
 
@@ -50,7 +50,7 @@
                                 <property name="vexpand">True</property>
                             </object>
                             <packing>
-                                <property name="tab-label">Complete</property>
+                                <property name="tab-label">COMPLETED</property>
                             </packing>
                         </child>
 
@@ -63,7 +63,6 @@
                     <object class="GtkBox" id="statusbar">
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="border-width">3</property>
                         <property name="spacing">3</property>
 
                         <child>

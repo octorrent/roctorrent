@@ -1,0 +1,47 @@
+window {
+    background-color: #141414; /* Set to your preferred color */
+}
+
+notebook {
+    background-color: #242424;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: none;
+    box-shadow: none;
+}
+
+notebook box {
+    background-color: #242424;
+    border: none;
+    box-shadow: none;
+}
+
+notebook > header {
+    border-bottom: none; /* Specifically target the header's bottom border */
+    box-shadow: none;
+}
+
+
+notebook tab {
+    color: #e6e6e6;
+    border-radius: 15px;
+    font-size: 12px;
+    padding: 0 15px;
+    border: none;
+    box-shadow: none;
+    margin-top: 8px;
+}
+
+notebook tab:hover {
+    background-color: #343434;
+}
+
+notebook tab:checked {
+    color: #141414;
+    background-color: #994ce0;
+}
+
+#statusbar {
+    padding: 5px;
+    background-color: #242424;
+}
