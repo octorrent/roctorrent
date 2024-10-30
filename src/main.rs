@@ -4,7 +4,7 @@ mod handlers;
 
 use std::process::exit;
 use gtk::prelude::*;
-use gtk::{Application, Builder, gio, CssProvider, StyleContext, gdk, ApplicationWindow, ListBox, ListBoxRow, Label, Orientation, ScrolledWindow};
+use gtk::{Application, Builder, gio, CssProvider, StyleContext, gdk, ApplicationWindow, ListBox, ListBoxRow, Label, Orientation, ScrolledWindow, Image, ProgressBar};
 use crate::application::{init_actions, init_styles};
 use crate::handlers::torrent::Torrent;
 
@@ -86,11 +86,30 @@ fn create_row(torrent: Torrent) -> ListBoxRow {
     let row = ListBoxRow::new();
     let hbox = gtk::Box::new(Orientation::Horizontal, 5);
 
-    let label = Label::new(Some(torrent.get_title().as_str()));
-    hbox.pack_start(&label, false, false, 5);
+    let icon = Image::new();
+    icon.set_from_file(Some("res/images/ic_ratio.svg"));
+    hbox.pack_start(&icon, false, false, 0);
 
-    //let label = Label::new(Some(&format!("Item {}", i)));
-    //hbox.pack_start(&label, false, false, 5);
+    let vbox = gtk::Box::new(Orientation::Vertical, 5);
+
+    let label = Label::new(Some(torrent.get_title().as_str()));
+    label.set_halign(gtk::Align::Start);
+    vbox.pack_start(&label, false, true, 0);
+
+    let label = Label::new(Some("624 MB of 3.12 GB - 2 min, 13 secs left"));
+    label.set_halign(gtk::Align::Start);
+    vbox.pack_start(&label, false, true, 0);
+
+    let progress = ProgressBar::new();
+    progress.set_fraction(50.0);
+    progress.set_halign(gtk::Align::Start);
+    vbox.pack_start(&progress, false, true, 0);
+
+    let label = Label::new(Some("Downloading from 45 of 50 connected peers"));
+    label.set_halign(gtk::Align::Start);
+    vbox.pack_start(&label, false, true, 0);
+
+    hbox.pack_start(&vbox, false, false, 5);
 
     row.add(&hbox);
     row
