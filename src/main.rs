@@ -93,10 +93,12 @@ fn create_row(torrent: Torrent) -> ListBoxRow {
     let vbox = gtk::Box::new(Orientation::Vertical, 5);
 
     let label = Label::new(Some(torrent.get_title().as_str()));
+    label.set_widget_name("title");
     label.set_halign(gtk::Align::Start);
     vbox.pack_start(&label, false, true, 0);
 
     let label = Label::new(Some("624 MB of 3.12 GB - 2 min, 13 secs left"));
+    label.set_widget_name("status");
     label.set_halign(gtk::Align::Start);
     vbox.pack_start(&label, false, true, 0);
 
@@ -106,6 +108,7 @@ fn create_row(torrent: Torrent) -> ListBoxRow {
     vbox.pack_start(&progress, false, true, 0);
 
     let label = Label::new(Some("Downloading from 45 of 50 connected peers"));
+    label.set_widget_name("description");
     label.set_halign(gtk::Align::Start);
     vbox.pack_start(&label, false, true, 0);
 

@@ -46,6 +46,29 @@ notebook tab:checked {
     background-color: #994ce0;
 }
 
+list {
+    background-color: #242424;
+}
+
+row {
+    background-color: #242424;
+    padding: 10px 0;
+}
+
+row #title {
+    font-weight: bold;
+}
+
+row #status,
+        row #description {
+    color: #b3b3b3;
+}
+
+row progress {
+    background-color: #e0e0e0;
+}
+
+
 #statusbar {
     padding: 5px;
     background-color: #242424;
