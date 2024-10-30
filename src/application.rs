@@ -32,6 +32,7 @@ pub fn show_about(window: &ApplicationWindow) {
         .program_name("OcTorrent")
         .version(VERSION)
         .authors(vec!["DrBrad"])
+        .website_label("https://octorrent.com")
         .website("https://octorrent.com")
         .comments("Secure and Anonymous Torrent")
         .copyright("Copyright (c) 2024 OcTorrent")
