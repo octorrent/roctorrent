@@ -2,9 +2,22 @@ window {
     background-color: #141414; /* Set to your preferred color */
 }
 
+trough {
+    background-color: #242424;
+}
+
+slider {
+    background-color: #994ce0;
+}
+
 menubar {
     background-color: #141414;
     padding-bottom: 5px;
+}
+
+menuitem {
+    border: none;
+    box-shadow: none;
 }
 
 notebook {
