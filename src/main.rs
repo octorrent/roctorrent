@@ -3,7 +3,7 @@ mod application;
 
 use std::process::exit;
 use gtk::prelude::*;
-use gtk::{Application, Builder, gio, CssProvider, StyleContext, gdk, ApplicationWindow};
+use gtk::{Application, Builder, gio, CssProvider, StyleContext, gdk, ApplicationWindow, ListBox, ListBoxRow, Label, Orientation, ScrolledWindow};
 use crate::application::{init_actions, init_styles};
 
 fn main() {
@@ -38,12 +38,43 @@ fn main() {
         */
         window.set_icon_from_file("res/images/ic_launcher.svg").expect("Failed to load icon");
 
-
         //let window = Window::new(WindowType::Toplevel);
         window.set_title("OcTorrent");
         window.connect_destroy(|_| exit(0));
 
         init_styles(&builder);
+
+
+
+
+
+        let list_box = ListBox::new();
+
+        // Create and add items
+        for i in 1..=50 {
+            let row = ListBoxRow::new();
+            let hbox = gtk::Box::new(Orientation::Horizontal, 5);
+
+            let label = Label::new(Some(&format!("Item {}", i)));
+            hbox.pack_start(&label, false, false, 5);
+
+            let label = Label::new(Some(&format!("Item {}", i)));
+            hbox.pack_start(&label, false, false, 5);
+
+            row.add(&hbox);
+            list_box.add(&row);
+        }
+
+
+        let all_tab_layout: ScrolledWindow = builder
+            .object("all_tab_layout")
+            .expect("Couldn't find 'statusbar' in window.ui");
+
+        all_tab_layout.add(&list_box);
+        list_box.show_all();
+
+
+
 
         let builder = Builder::from_file("res/ui/octorrent-ui.xml");
         let menubar: gio::Menu = builder

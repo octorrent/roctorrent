@@ -19,9 +19,8 @@
                         <property name="can-focus">True</property>
 
                         <child>
-                            <object class="GtkBox">
+                            <object class="GtkScrolledWindow" id="all_tab_layout">
                                 <property name="visible">True</property>
-                                <property name="orientation">vertical</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
                             </object>
@@ -31,7 +30,7 @@
                         </child>
 
                         <child>
-                            <object class="GtkBox">
+                            <object class="GtkBox" id="downloading_tab_layout">
                                 <property name="visible">True</property>
                                 <property name="orientation">vertical</property>
                                 <property name="hexpand">True</property>
@@ -43,7 +42,7 @@
                         </child>
 
                         <child>
-                            <object class="GtkBox">
+                            <object class="GtkBox" id="complete_tab_layout">
                                 <property name="visible">True</property>
                                 <property name="orientation">vertical</property>
                                 <property name="hexpand">True</property>

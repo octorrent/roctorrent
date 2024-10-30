@@ -34,7 +34,7 @@ notebook tab {
     padding: 0 15px;
     border: none;
     box-shadow: none;
-    margin-top: 8px;
+    margin: 8px 4px;
 }
 
 notebook tab:hover {
