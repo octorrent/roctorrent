@@ -1,12 +1,10 @@
 mod config;
 mod application;
 
-use std::os::linux::raw::stat;
 use std::process::exit;
-use gtk::prelude::*; // Import all necessary traits from gtk3::prelude
-use gtk::{Application, Builder, Window, WindowType, Box as GtkBox, gio, SeparatorMenuItem, Menu, CssProvider, StyleContext, gdk, ApplicationWindow};
-use gtk::gio::SimpleAction;
-use crate::config::VERSION;
+use gtk::prelude::*;
+use gtk::{Application, Builder, Box as GtkBox, gio, CssProvider, StyleContext, gdk, ApplicationWindow};
+use crate::application::init_actions;
 
 fn main() {
     let app = Application::new(Some("com.octorrent.rust"), Default::default());
@@ -23,9 +21,8 @@ fn main() {
             gtk::STYLE_PROVIDER_PRIORITY_APPLICATION,
         );
 
-        // Get the window and other widgets from the builder
         let window: ApplicationWindow = builder
-            .object("MainWindow")  // Use the ID you set in Glade for the main window
+            .object("MainWindow")
             .expect("Failed to get the 'MainWindow' from window.ui");
 
         window.set_application(Some(app));
@@ -47,31 +44,10 @@ fn main() {
 
         app.set_menubar(Some(&menubar));
 
-        //init_actions(&app);
-
-        let action = SimpleAction::new("show-about-dialog", None);
-
-        action.connect_activate(move |_, _| {
-            let dialog = gtk::AboutDialog::builder()
-                .modal(true)
-                .program_name("OcTorrent")
-                .version(VERSION)
-                .authors(vec!["DrBrad"])
-                //.authors(vec![<&str as Into<T>>::into("DrBrad")])
-                .build();
-
-            dialog.present();
-        });
-        action.set_enabled(true);
-
-        window.add_action(&action);
+        init_actions(&window);
 
         window.show_all();
     });
 
     app.run();
-}
-
-
-fn init_actions(app: &Application) {
 }
