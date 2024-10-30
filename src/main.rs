@@ -21,7 +21,7 @@ fn main() {
         // Get the window and other widgets from the builder
         let window: Window = builder
             .object("MainWindow")  // Use the ID you set in Glade for the main window
-            .expect("Failed to get the main_window from layout.ui");
+            .expect("Failed to get the 'MainWindow' from layout.ui");
 
         window.set_application(Some(app));
 
@@ -32,7 +32,7 @@ fn main() {
 
         let statusbar: GtkBox = builder
             .object("statusbar")
-            .expect("Couldn't find 'main_window_menu' in menu.ui");
+            .expect("Couldn't find 'statusbar' in menu.ui");
         statusbar.set_widget_name("statusbar");
 
 
