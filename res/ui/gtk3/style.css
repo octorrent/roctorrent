@@ -2,6 +2,10 @@ window {
     background-color: #141414; /* Set to your preferred color */
 }
 
+menubar {
+    background-color: #141414;
+}
+
 notebook {
     background-color: #242424;
     border-top-left-radius: 20px;
