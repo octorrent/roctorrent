@@ -71,7 +71,7 @@ fn main() {
 
         app.set_menubar(Some(&menubar));
 
-        init_actions(&window);
+        init_actions(&app, &window);
 
         window.show_all();
     });

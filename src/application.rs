@@ -1,4 +1,4 @@
-use gtk::{AboutDialog, ApplicationWindow, Builder, Box as GtkBox, Image};
+use gtk::{AboutDialog, ApplicationWindow, Builder, Box as GtkBox, Image, Application};
 use gtk::gdk_pixbuf::PixbufLoader;
 use gtk::prelude::*;
 use gtk::gio::SimpleAction;
@@ -27,7 +27,14 @@ pub fn init_styles(builder: &Builder) {
     ratio_icon.set_from_file(Some("res/images/ic_ratio.svg"));
 }
 
-pub fn init_actions(window: &ApplicationWindow) {
+pub fn init_actions(app: &Application, window: &ApplicationWindow) {
+    let action = SimpleAction::new("quit", None);
+    let app_clone = app.clone();
+    action.connect_activate(move |_, _| {
+        app_clone.quit();
+    });
+    window.add_action(&action);
+
     let action = SimpleAction::new("show-about-dialog", None);
     let window_clone = window.clone();
     action.connect_activate(move |_, _| {
