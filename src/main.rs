@@ -3,9 +3,8 @@ mod application;
 
 use std::process::exit;
 use gtk::prelude::*;
-use gtk::{Application, Builder, Box as GtkBox, gio, CssProvider, StyleContext, gdk, ApplicationWindow};
-use gtk::gdk_pixbuf::PixbufLoader;
-use crate::application::init_actions;
+use gtk::{Application, Builder, gio, CssProvider, StyleContext, gdk, ApplicationWindow};
+use crate::application::{init_actions, init_styles};
 
 fn main() {
     let app = Application::new(Some("com.octorrent.rust"), Default::default());
@@ -28,26 +27,23 @@ fn main() {
 
         window.set_application(Some(app));
 
-
-        let svg_data = include_bytes!("../res/favicon.svg");
+        /*
+        let svg_data = include_bytes!("../res/ic_launcher.svg");
         let loader = PixbufLoader::with_type("svg").expect("Failed to create SVG loader");
         loader.write(svg_data).expect("Failed to load SVG data");
         loader.close().expect("Failed to close SVG loader");
         let icon_pixbuf = loader.pixbuf().expect("Failed to get Pixbuf from SVG");
 
         window.set_icon(Some(&icon_pixbuf));
-
+        */
+        window.set_icon_from_file("res/images/ic_launcher.svg").expect("Failed to load icon");
 
 
         //let window = Window::new(WindowType::Toplevel);
         window.set_title("OcTorrent");
         window.connect_destroy(|_| exit(0));
 
-
-        let statusbar: GtkBox = builder
-            .object("statusbar")
-            .expect("Couldn't find 'statusbar' in window.ui");
-        statusbar.set_widget_name("statusbar");
+        init_styles(&builder);
 
         let builder = Builder::from_file("res/ui/octorrent-ui.xml");
         let menubar: gio::Menu = builder

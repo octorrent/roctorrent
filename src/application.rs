@@ -1,9 +1,31 @@
-use gtk::{AboutDialog, ApplicationWindow};
+use gtk::{AboutDialog, ApplicationWindow, Builder, Box as GtkBox, Image};
 use gtk::gdk_pixbuf::PixbufLoader;
 use gtk::prelude::*;
 use gtk::gio::SimpleAction;
 use gtk::prelude::{ActionMapExt, GtkWindowExt};
 use crate::config::VERSION;
+
+pub fn init_styles(builder: &Builder) {
+    let statusbar: GtkBox = builder
+        .object("statusbar")
+        .expect("Couldn't find 'statusbar' in window.ui");
+    statusbar.set_widget_name("statusbar");
+
+    let download_icon: Image = builder
+        .object("download_icon")
+        .expect("Couldn't get svg_icon from builder");
+    download_icon.set_from_file(Some("res/images/ic_down.svg"));
+
+    let upload_icon: Image = builder
+        .object("upload_icon")
+        .expect("Couldn't get svg_icon from builder");
+    upload_icon.set_from_file(Some("res/images/ic_up.svg"));
+
+    let ratio_icon: Image = builder
+        .object("ratio_icon")
+        .expect("Couldn't get svg_icon from builder");
+    ratio_icon.set_from_file(Some("res/images/ic_ratio.svg"));
+}
 
 pub fn init_actions(window: &ApplicationWindow) {
     let action = SimpleAction::new("show-about-dialog", None);
@@ -15,16 +37,11 @@ pub fn init_actions(window: &ApplicationWindow) {
 }
 
 pub fn show_about(window: &ApplicationWindow) {
-
-
-    let svg_data = include_bytes!("../res/favicon.svg");
+    let svg_data = include_bytes!("../res/images/ic_launcher.svg");
     let loader = PixbufLoader::with_type("svg").expect("Failed to create SVG loader");
     loader.write(svg_data).expect("Failed to load SVG data");
     loader.close().expect("Failed to close SVG loader");
     let icon_pixbuf = loader.pixbuf().expect("Failed to get Pixbuf from SVG");
-
-    window.set_icon(Some(&icon_pixbuf));
-
 
     let dialog = AboutDialog::builder()
         .transient_for(window)

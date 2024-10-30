@@ -61,9 +61,55 @@
 
                 <child>
                     <object class="GtkBox" id="statusbar">
+                        <property name="orientation">horizontal</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
-                        <property name="spacing">3</property>
+                        <property name="spacing">6</property>
+
+
+
+                        <child>
+                            <object class="GtkLabel" id="download_label">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="margin-start">9</property>
+                                <property name="margin-end">3</property>
+                                <property name="label">Ratio: 0.0</property>
+                                <property name="single-line-mode">True</property>
+                                <property name="halign">end</property>
+                                <property name="hexpand">True</property>
+                            </object>
+                        </child>
+
+                        <child>
+                            <object class="GtkImage" id="download_icon">
+                                <property name="halign">end</property>
+                                <property name="icon-name">media-playback-start-symbolic</property>
+                            </object>
+                        </child>
+
+
+
+                        <child>
+                            <object class="GtkLabel" id="upload_label">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="margin-start">9</property>
+                                <property name="margin-end">3</property>
+                                <property name="label">Ratio: 0.0</property>
+                                <property name="single-line-mode">True</property>
+                                <property name="halign">end</property>
+                            </object>
+                        </child>
+
+                        <child>
+                            <object class="GtkImage" id="upload_icon">
+                                <property name="halign">end</property>
+                                <property name="icon-name">media-playback-start-symbolic</property>
+                            </object>
+                        </child>
+
+
 
                         <child>
                             <object class="GtkLabel" id="ratio_label">
@@ -73,19 +119,18 @@
                                 <property name="margin-end">3</property>
                                 <property name="label">Ratio: 0.0</property>
                                 <property name="single-line-mode">True</property>
+                                <property name="halign">end</property>
                             </object>
-                            <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
-                                <property name="position">6</property>
-                            </packing>
                         </child>
+
+                        <child>
+                            <object class="GtkImage" id="ratio_icon">
+                                <property name="icon-name">media-playback-start-symbolic</property>
+                                <property name="halign">end</property>
+                            </object>
+                        </child>
+
                     </object>
-                    <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">4</property>
-                    </packing>
                 </child>
 
             </object>
