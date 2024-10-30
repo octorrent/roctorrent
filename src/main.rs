@@ -41,7 +41,7 @@ fn main() {
         let builder = Builder::from_file("res/ui/octorrent-ui.xml");
         let menubar: gio::Menu = builder
             .object("main_window_menu")
-            .expect("Couldn't find 'main_window_menu' in menu.ui");
+            .expect("Couldn't find 'main_window_menu' in octorrent-ui.xml");
 
         app.set_menubar(Some(&menubar));
 
