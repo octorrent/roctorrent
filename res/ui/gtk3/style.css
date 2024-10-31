@@ -113,6 +113,10 @@ list row progressbar progress {
     padding-top: 50px;
 }
 
+#no_torrents_layout image {
+    margin-bottom: 20px;
+}
+
 #no_torrents_layout #title {
     color: #e6e6e6;
     font-size: 20px;
