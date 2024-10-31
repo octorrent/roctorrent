@@ -49,10 +49,10 @@ fn main() {
 
 
 
+        //ALL
 
         let list_box = ListBox::new();
         list_box.add(&create_row(Torrent::new("ubuntu-21.10-desktop-amd64.iso")));
-
 
         let all_tab_layout: ScrolledWindow = builder
             .object("all_tab_layout")
@@ -61,6 +61,27 @@ fn main() {
         all_tab_layout.add(&list_box);
         list_box.show_all();
 
+
+        //DOWNLOADING
+
+        let list_box = ListBox::new();
+        list_box.add(&create_row(Torrent::new("ubuntu-21.10-desktop-amd64.iso")));
+
+        let downloading_tab_layout: ScrolledWindow = builder
+            .object("downloading_tab_layout")
+            .expect("Couldn't find 'statusbar' in window.ui");
+
+        downloading_tab_layout.add(&list_box);
+        list_box.show_all();
+
+
+        //COMPLETE
+
+        let complete_tab_layout: ScrolledWindow = builder
+            .object("complete_tab_layout")
+            .expect("Couldn't find 'statusbar' in window.ui");
+
+        complete_tab_layout.add(&create_no_torrents());
 
 
 
@@ -77,6 +98,25 @@ fn main() {
     });
 
     app.run();
+}
+
+fn create_no_torrents() -> gtk::Box {
+    let vbox = gtk::Box::new(Orientation::Vertical, 5);
+    vbox.set_widget_name("no_torrents_layout");
+
+    let image = Image::new();
+    image.set_from_file(Some("res/images/background_error_no_torrents.svg"));
+    vbox.pack_start(&image, false, false, 0);
+
+    let label = Label::new(Some("Uh oh,"));
+    label.set_widget_name("title");
+    vbox.pack_start(&label, false, true, 0);
+
+    let label = Label::new(Some("You don't have any torrents"));
+    label.set_widget_name("description");
+    vbox.pack_start(&label, false, true, 0);
+
+    vbox
 }
 
 fn create_row(torrent: Torrent) -> ListBoxRow {
@@ -107,7 +147,7 @@ fn create_row(torrent: Torrent) -> ListBoxRow {
     let label = Label::new(Some("Downloading from 45 of 50 connected peers"));
     label.set_widget_name("description");
     label.set_halign(gtk::Align::Start);
-    vbox.pack_start(&label, true, true, 0);
+    vbox.pack_start(&label, false, true, 0);
 
     hbox.pack_start(&vbox, true, true, 5);
 

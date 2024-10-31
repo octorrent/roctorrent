@@ -99,8 +99,26 @@ list row progressbar progress {
     box-shadow: none;
 }
 
+#no_torrents_icon image {
+    padding-top: 50px;
+}
 
 #statusbar {
     padding: 5px;
+    color: #e6e6e6;
     background-color: #242424;
+}
+
+#no_torrents_layout {
+    padding-top: 50px;
+}
+
+#no_torrents_layout #title {
+    color: #e6e6e6;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#no_torrents_layout #description {
+    color: #b3b3b3;
 }

@@ -3,7 +3,7 @@
     <requires lib="gtk+" version="3.24"/>
     <object class="GtkApplicationWindow" id="MainWindow">
         <property name="title">OcTorrent</property>
-        <property name="default_width">450</property>
+        <property name="default_width">420</property>
         <property name="default_height">700</property>
         <property name="can-focus">False</property>
         <property name="role">tr-main</property>
@@ -30,9 +30,8 @@
                         </child>
 
                         <child>
-                            <object class="GtkBox" id="downloading_tab_layout">
+                            <object class="GtkScrolledWindow" id="downloading_tab_layout">
                                 <property name="visible">True</property>
-                                <property name="orientation">vertical</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
                             </object>
@@ -42,9 +41,8 @@
                         </child>
 
                         <child>
-                            <object class="GtkBox" id="complete_tab_layout">
+                            <object class="GtkScrolledWindow" id="complete_tab_layout">
                                 <property name="visible">True</property>
-                                <property name="orientation">vertical</property>
                                 <property name="hexpand">True</property>
                                 <property name="vexpand">True</property>
                             </object>
@@ -52,7 +50,6 @@
                                 <property name="tab-label">COMPLETED</property>
                             </packing>
                         </child>
-
                     </object>
                 </child>
 

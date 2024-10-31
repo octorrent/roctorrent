@@ -1,4 +1,4 @@
-use gtk::{AboutDialog, ApplicationWindow, Builder, Box as GtkBox, Image, Application};
+use gtk::{AboutDialog, ApplicationWindow, Builder, Box, Image, Application};
 use gtk::gdk_pixbuf::PixbufLoader;
 use gtk::prelude::*;
 use gtk::gio::SimpleAction;
@@ -6,7 +6,7 @@ use gtk::prelude::{ActionMapExt, GtkWindowExt};
 use crate::config::VERSION;
 
 pub fn init_styles(builder: &Builder) {
-    let statusbar: GtkBox = builder
+    let statusbar: gtk::Box = builder
         .object("statusbar")
         .expect("Couldn't find 'statusbar' in window.ui");
     statusbar.set_widget_name("statusbar");
