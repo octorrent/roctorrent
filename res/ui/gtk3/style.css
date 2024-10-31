@@ -84,7 +84,7 @@ list row #status,
 }
 
 list row progressbar trough {
-    min-height: 6px;
+    min-height: 8px;
     background-color: #343434;
     border-radius: 0;
     border: none;
@@ -92,7 +92,7 @@ list row progressbar trough {
 }
 
 list row progressbar progress {
-    min-height: 6px;
+    min-height: 8px;
     background-color: #994ce0;
     border-radius: 0;
     border: none;
