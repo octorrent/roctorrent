@@ -41,7 +41,7 @@ fn main() {
         window.set_icon_from_file("res/images/ic_launcher.svg").expect("Failed to load icon");
 
         //let window = Window::new(WindowType::Toplevel);
-        window.set_title("OcTorrent");
+        window.set_title("OcTorrent - Rust");
         window.connect_destroy(|_| exit(0));
 
         init_styles(&builder);
