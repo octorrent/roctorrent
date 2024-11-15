@@ -401,13 +401,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "octorrent"
-version = "0.1.0"
-dependencies = [
- "gtk",
-]
-
-[[package]]
 name = "once_cell"
 version = "1.20.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -524,6 +517,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cfcb3a22ef46e85b45de6ee7e79d063319ebb6594faafcf1c225ea92ab6e9b92"
 dependencies = [
  "semver",
+]
+
+[[package]]
+name = "sectorrent"
+version = "0.1.0"
+dependencies = [
+ "gtk",
 ]
 
 [[package]]

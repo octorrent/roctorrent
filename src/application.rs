@@ -53,14 +53,14 @@ pub fn show_about(window: &ApplicationWindow) {
     let dialog = AboutDialog::builder()
         .transient_for(window)
         .modal(true)
-        .program_name("OcTorrent")
+        .program_name("SecTorrent")
         .version(VERSION)
         .authors(vec!["DrBrad"])
-        .website_label("https://octorrent.com")
-        .website("https://octorrent.com")
+        .website_label("https://sectorrent.com")
+        .website("https://sectorrent.com")
         .comments("Secure and Anonymous Torrent")
-        .copyright("Copyright (c) 2024 OcTorrent")
-        .license("Copyright (c) 2024 OcTorrent\r\n\r\n\
+        .copyright("Copyright (c) 2024 SecTorrent")
+        .license("Copyright (c) 2024 SecTorrent\r\n\r\n\
         \
         Permission is hereby granted, free of charge, to any person obtaining a copy\r\n\
         of this software and associated documentation files (the \"Software\"), to deal\r\n\

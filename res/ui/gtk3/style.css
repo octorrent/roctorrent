@@ -35,7 +35,7 @@ notebook box {
 }
 
 notebook > header {
-    border-bottom: none; /* Specifically target the header's bottom border */
+    border-bottom: none;
     box-shadow: none;
 }
 

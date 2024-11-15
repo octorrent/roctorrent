@@ -9,7 +9,7 @@ use crate::application::{init_actions, init_styles};
 use crate::handlers::torrent::Torrent;
 
 fn main() {
-    let app = Application::new(Some("com.octorrent.rust"), Default::default());
+    let app = Application::new(Some("com.sectorrent.rust"), Default::default());
 
     app.connect_activate(|app| {
         let builder = Builder::from_file("res/ui/gtk3/window.ui");
@@ -41,7 +41,7 @@ fn main() {
         window.set_icon_from_file("res/images/ic_launcher.svg").expect("Failed to load icon");
 
         //let window = Window::new(WindowType::Toplevel);
-        window.set_title("OcTorrent - Rust");
+        window.set_title("SecTorrent - Rust");
         window.connect_destroy(|_| exit(0));
 
         init_styles(&builder);
@@ -85,10 +85,10 @@ fn main() {
 
 
 
-        let builder = Builder::from_file("res/ui/octorrent-ui.xml");
+        let builder = Builder::from_file("res/ui/sectorrent-ui.xml");
         let menubar: gio::Menu = builder
             .object("main_window_menu")
-            .expect("Couldn't find 'main_window_menu' in octorrent-ui.xml");
+            .expect("Couldn't find 'main_window_menu' in sectorrent-ui.xml");
 
         app.set_menubar(Some(&menubar));
 
