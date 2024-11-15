@@ -1,6 +1,6 @@
-# OcTorrent Rust Client
+# SecTorrent Rust Client
 
-This is the repository backing the official OcTorrent Rust Client app.
+This is the repository backing the official SecTorrent Rust Client app.
 
 **Required for build**
 ```
