@@ -56,7 +56,7 @@ fn main() {
 
         let all_tab_layout: ScrolledWindow = builder
             .object("all_tab_layout")
-            .expect("Couldn't find 'statusbar' in window.ui");
+            .expect("Couldn't find 'all_tab_layout' in window.ui");
 
         all_tab_layout.add(&list_box);
         list_box.show_all();
@@ -69,7 +69,7 @@ fn main() {
 
         let downloading_tab_layout: ScrolledWindow = builder
             .object("downloading_tab_layout")
-            .expect("Couldn't find 'statusbar' in window.ui");
+            .expect("Couldn't find 'downloading_tab_layout' in window.ui");
 
         downloading_tab_layout.add(&list_box);
         list_box.show_all();
@@ -79,7 +79,7 @@ fn main() {
 
         let complete_tab_layout: ScrolledWindow = builder
             .object("complete_tab_layout")
-            .expect("Couldn't find 'statusbar' in window.ui");
+            .expect("Couldn't find 'complete_tab_layout' in window.ui");
 
         complete_tab_layout.add(&create_no_torrents());
 
