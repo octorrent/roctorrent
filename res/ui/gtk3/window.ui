@@ -77,8 +77,9 @@
 
                         <child>
                             <object class="GtkImage" id="download_icon">
+                                <property name="icon-name">down-icon</property>
+                                <property name="file">res/images/ic_down.svg</property>
                                 <property name="halign">end</property>
-                                <property name="icon-name">media-playback-start-symbolic</property>
                             </object>
                         </child>
 
@@ -96,8 +97,9 @@
 
                         <child>
                             <object class="GtkImage" id="upload_icon">
+                                <property name="icon-name">up-icon</property>
+                                <property name="file">res/images/ic_up.svg</property>
                                 <property name="halign">end</property>
-                                <property name="icon-name">media-playback-start-symbolic</property>
                             </object>
                         </child>
 
@@ -115,7 +117,8 @@
 
                         <child>
                             <object class="GtkImage" id="ratio_icon">
-                                <property name="icon-name">media-playback-start-symbolic</property>
+                                <property name="icon-name">ratio-icon</property>
+                                <property name="file">res/images/ic_ratio.svg</property>
                                 <property name="halign">end</property>
                             </object>
                         </child>

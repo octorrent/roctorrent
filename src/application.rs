@@ -10,21 +10,6 @@ pub fn init_styles(builder: &Builder) {
         .object("statusbar")
         .expect("Couldn't find 'statusbar' in window.ui");
     statusbar.set_widget_name("statusbar");
-
-    let download_icon: Image = builder
-        .object("download_icon")
-        .expect("Couldn't get svg_icon from builder");
-    download_icon.set_from_file(Some("res/images/ic_down.svg"));
-
-    let upload_icon: Image = builder
-        .object("upload_icon")
-        .expect("Couldn't get svg_icon from builder");
-    upload_icon.set_from_file(Some("res/images/ic_up.svg"));
-
-    let ratio_icon: Image = builder
-        .object("ratio_icon")
-        .expect("Couldn't get svg_icon from builder");
-    ratio_icon.set_from_file(Some("res/images/ic_ratio.svg"));
 }
 
 pub fn init_actions(app: &Application, window: &ApplicationWindow) {
