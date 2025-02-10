@@ -57,6 +57,7 @@
 
                 <child>
                     <object class="GtkBox" id="statusbar">
+                        <property name="name">statusbar</property>
                         <property name="orientation">horizontal</property>
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>

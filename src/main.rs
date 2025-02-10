@@ -5,7 +5,7 @@ mod handlers;
 use std::process::exit;
 use gtk::prelude::*;
 use gtk::{Application, Builder, gio, CssProvider, StyleContext, gdk, ApplicationWindow, ListBox, ListBoxRow, Label, Orientation, ScrolledWindow, Image, ProgressBar};
-use crate::application::{init_actions, init_styles};
+use crate::application::init_actions;
 use crate::handlers::torrent::Torrent;
 
 fn main() {
@@ -44,7 +44,6 @@ fn main() {
         window.set_title("SecTorrent - Rust");
         window.connect_destroy(|_| exit(0));
 
-        init_styles(&builder);
 
 
 

@@ -5,13 +5,6 @@ use gtk::gio::SimpleAction;
 use gtk::prelude::{ActionMapExt, GtkWindowExt};
 use crate::config::VERSION;
 
-pub fn init_styles(builder: &Builder) {
-    let statusbar: gtk::Box = builder
-        .object("statusbar")
-        .expect("Couldn't find 'statusbar' in window.ui");
-    statusbar.set_widget_name("statusbar");
-}
-
 pub fn init_actions(app: &Application, window: &ApplicationWindow) {
     let action = SimpleAction::new("quit", None);
     let app_clone = app.clone();
